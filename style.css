@@ -1,0 +1,129 @@
+html, body {
+    margin: 0%;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+.panels {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    overflow: hidden;
+}
+
+.panel1 {background-color: #786a28; color: #641808be}
+.panel2 {background-color: #78a68c; color: #5c4d78be}
+.panel3 {background-color: #301a61; color: #f17c23be}
+
+.panel {
+    height: 100vh;
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Catamaran', sans-serif;
+    transition: flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11);
+}
+
+.panel > * {
+    margin: 0;
+    width: 100%;
+    transition: transform 0.5s;
+}
+
+
+
+.panel1:hover h1 {
+    color: #641808;
+}
+.panel2:hover h1 {
+    color: #5c4d78;
+}
+.panel3:hover h1 {
+    color: #f17c23;
+}
+
+.panel.open {  
+    flex: 10;
+}
+
+.panel > *:first-child {opacity: 0;}
+.panel > *:last-child {opacity: 0;}
+.panel.open > *:first-child {opacity: 1;}
+.panel.open > *:last-child {opacity: 1;}
+
+
+button {
+    width: 90px !important;
+    height: 40px;
+    font-family: 'Catamaran', sans-serif;
+    border: 2px solid #084C61be;
+    border-radius: 20%;
+    color: #084C61be;
+    position: relative;
+}
+
+button:focus {
+    outline: none;
+}
+
+
+.button1 {
+    background-color: #301a61;
+}
+.button2 {
+    background-color:  #786a28;
+}
+.button3 {
+    background-color: #78a68c;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20%;
+    opacity: 0;
+    transition: opacity 0.35s ease-in-out;
+}
+
+.button1::before {
+    background: repeating-linear-gradient(
+    45deg,
+    #301a61,
+    #301a61 10px,
+    #786a28 10px,
+    #786a28 20px);   
+}
+
+.button2::before {
+    background: repeating-linear-gradient(
+    45deg,
+    #786a28,
+    #786a28 10px,
+    #78a68c 10px,
+    #78a68c 20px);
+}
+.button3::before {
+    background: repeating-linear-gradient(
+    45deg,
+    #78a68c,
+    #78a68c 10px,
+    #301a61 10px,
+    #301a61 20px);
+}
+
+button:hover::before {
+    opacity: 1;
+}
+
